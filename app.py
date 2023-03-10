@@ -2,22 +2,24 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
-#conexion a la base de datos
+
 
 app = Flask(__name__)
 
+#conexion a la base de datos
 app.config['SQLALCHEMY_DATABASE_URI'] =  "sqlite:///" + os.path.abspath(os.getcwd()) + "/database.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-#tabbla de registro
+#tabla de registro
 class users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False )
     pasword = db.Column(db.String(80), nullable=False )
     email = db.Column(db.String(100), nullable=False)
 
+#direccion de la pagina
 @app.route("/", methods=['GET', 'POST'])
 def signup():
     if request.method == "POST":
@@ -25,7 +27,7 @@ def signup():
         new_user = users(username=request.form["username"], pasword=hashed_pw)
         emails = users(email=request.form["email"])
 
-        #almacen nando en la base de datos
+        #almacenando en la base de datos
         db.session.add(new_user)
         db.session.commit()
         return render_template("sing.html")
@@ -41,12 +43,6 @@ def login():
             return redirect(url_for("myblokchain"))
         return render_template('Try again')
     return render_template("index.html")
-
-
-"""@app.route("/login/myblokchain")
-def myblokchain():
-"""
-
 
 
 if __name__ == "__main__":
