@@ -1,28 +1,53 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Sing-up</title>
 
-  </head>
-  <body>
-    <form class="form">
-      <h2>Sing-up</h2>
-      <label for="email">username</label>
-      <input type="text" name="username" id="username" required></input>
-      <p> email
-      <input type="text" name="email" id="email"></input></p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
 
-      <label for="password">password</label>
-      <input type="text" name="password" id="password" required></input>
+  <title>login</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
 
-      <p> phone <input type="text" name="phone" id="phone"></input></p>
-      <button>Sing up</button>
-      <div>
-        <hr>
-        <span class="fa fa-phone"></span>55-555-555
-        <br>
-        <span class="fa fa-envelope-o"></span>diegoma.v2004@gmail.com
+<body>x
+
+
+  <div class="contenedorDeTodo">
+    <div class="contenedorTrasero">
+      <div class="contenedorLogin">
+        <h3>Crea una cuenta si no tienes</h3>
+        <p>Si tienes cuenta puedes iniciar seision</p>
+        <button id="log">Iniciar Sesion</button>
       </div>
-    </form>
-  </body>
+
+      <div class="contenedorRegistro">
+        <h3>Aun no tienes una cuenta?</h3>
+        <p>Registrar para que puedas iniciar sesion</p>
+        <button id="Registro">Registrarse</button>
+      </div>
+    </div>
+
+    <div class="contenedorLoginRegister">
+      <div>
+        <form action="" class="formularioLogin">
+          <input type="text" placeholder="Correo Electronico">
+          <input type="password" placeholder="pasword">
+          <button>Entrar</button>
+        </form>
+
+        <form action="" class="formularioRegister">
+          <h2>Registro</h2>
+          <input type="text" placeholder="First Name">
+          <input type="text" placeholder="Email">
+          <input type="password" placeholder="pasword">
+          <button>Registrate</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
 
 </html>
